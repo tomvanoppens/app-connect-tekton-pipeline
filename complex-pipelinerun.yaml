@@ -21,7 +21,7 @@ spec:
       value: "my-ace-sample"
     # where to run your application
     - name: ace-namespace
-      value: "ace-demo"
+      value: "ace"
 
 
     # ########################################################
@@ -29,7 +29,7 @@ spec:
     # ########################################################
     # location of the git repository with your application
     - name: git-repository
-      value: "https://github.com/dalelane/app-connect-tekton-pipeline"
+      value: "https://github.com/tomvanoppens/app-connect-tekton-pipeline"
 
     # name of the App Connect project to deploy
     #  This should be the name of a folder in ace-projects
@@ -61,10 +61,10 @@ spec:
       value:
         # update connection information for the Kafka cluster
         - "sample-ace-policies/eventstreams.policyxml TEMPLATE_BOOTSTRAP_SERVER    bootstrap-server kafka-connection-info          eventstreams"
-        - "sample-ace-policies/eventstreams.policyxml TEMPLATE_TRUSTSTORE_FILE     truststore-name  kafka-connection-info          eventstreams"
+        #- "sample-ace-policies/eventstreams.policyxml TEMPLATE_TRUSTSTORE_FILE     truststore-name  kafka-connection-info          eventstreams"
         # update credentials for connecting to Kafka
-        - "sample-ace-config/setdbparms.txt           TEMPLATE_KAFKA_ES_PASSWORD   password         appconnect-kafka-user          eventstreams"
-        - "sample-ace-config/setdbparms.txt           TEMPLATE_TRUSTSTORE_PASSWORD ca.password      event-backbone-cluster-ca-cert eventstreams"
+        #- "sample-ace-config/setdbparms.txt           TEMPLATE_KAFKA_ES_PASSWORD   password         appconnect-kafka-user          eventstreams"
+        #- "sample-ace-config/setdbparms.txt           TEMPLATE_TRUSTSTORE_PASSWORD ca.password      event-backbone-cluster-ca-cert eventstreams"
         # update connection information for the PostgreSQL database
         - "sample-ace-data-sources/datasources.json   TEMPLATE_POSTGRES_HOST       host             store-pguser-cp4i              postgresql"
         - "sample-ace-data-sources/datasources.json   TEMPLATE_POSTGRES_PORT       port             store-pguser-cp4i              postgresql"
@@ -107,12 +107,12 @@ spec:
       value: "sample-datasources"
 
     # truststore file
-    - name: truststore-p12-secret
-      value: "event-backbone-cluster-ca-cert"
-    - name: truststore-p12-secret-namespace
-      value: "eventstreams"
-    - name: truststore-name
-      value: "sample-truststore.jks"
+    #- name: truststore-p12-secret
+    #  value: "event-backbone-cluster-ca-cert"
+    #- name: truststore-p12-secret-namespace
+    #  value: "eventstreams"
+    #- name: truststore-name
+    #  value: "sample-truststore.jks"
 
 
 
